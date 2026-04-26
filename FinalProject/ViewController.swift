@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         updateUI()
     }
 
-    // Update displayed visuals to most current values
+    /// Update the visual display to the most current data.
     private func updateUI() {
         nameLabel.text = viewModel.nameText
         hungerLabel.text = viewModel.hungerText
