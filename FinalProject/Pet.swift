@@ -16,15 +16,8 @@ class Pet {
     var happiness: Int
     var affection: Int
 
-    
-    init(name: String,
-         hunger: Int,
-         energy: Int,
-         cleanliness: Int,
-         boredom: Int,
-         happiness: Int,
-         affection: Int) {
-        
+    // Starter stats for new pet
+    init(name: String) {
             self.name = name
             self.hunger = 85
             self.energy = 75
@@ -34,7 +27,47 @@ class Pet {
             self.affection = 0
     }
     
-    func feed() {
-        hunger = min(hunger + 15, 100)
-    }
+        // Results of interaction (not final numbers, balance these later)
+        func feed() {
+//            hunger = min(hunger + 15, 100)
+//            happiness = min(happiness + 5, 100)
+//            cleanliness = max(cleanliness - 5, 0)
+//            // Add chance of +1 affection point
+        }
+
+        func sleep() {
+//            energy = min(energy + 30, 100)
+//            hunger = max(hunger - 10, 0)
+//            boredom = max(boredom - 8, 0)
+        }
+
+        func bathe() {
+//            cleanliness = min(cleanliness + 35, 100)
+//            happiness = min(happiness + 4, 100)
+//            energy = max(energy - 5, 0)
+//            //Add chance of +1 affection point
+        }
+
+        func play() {
+//            boredom = min(boredom + 20, 100)
+//            happiness = min(happiness + 15, 100)
+//            affection = min(affection + 3, 100)
+//            energy = max(energy - 15, 0)
+//            //Add chance of +1 affection point
+        }
+    
+        func pet() {
+            //happiness = min(happiness + 3, 100)
+            //Add chance of +1 affection point
+        }
+
+
+        func tick() {
+//            hunger = max(hunger - 2, 0)
+//            boredom = max(boredom - 2, 0)
+//            cleanliness = max(cleanliness - 1, 0)
+//            energy = min(energy + 1, 100)
+//            happiness = max(happiness - 1, 0)
+        }
+    
 }
