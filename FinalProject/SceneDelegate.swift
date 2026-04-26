@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
 //  FinalProject
-//
-//  Created by Icy on 4/25/26.
+//  A virtual friend to play with, be sure to take good care of it!
+//  Created by Brigitte on 4/25/26.
 //
 
 import UIKit
