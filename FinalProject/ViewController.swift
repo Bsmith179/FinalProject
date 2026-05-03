@@ -56,20 +56,26 @@ class ViewController: UIViewController {
         boredomBar.progress = viewModel.boredomProgress
     }
 
+    
+    
     // Interaction button responses
-//    @IBAction func feedTapped(_ sender: UIButton) {
-//        viewModel.feedPet()
-//    }
-//
-//    @IBAction func playTapped(_ sender: UIButton) {
-//        viewModel.playWithPet()
-//    }
-//
-//    @IBAction func sleepTapped(_ sender: UIButton) {
-//        viewModel.sleepPet()
-//    }
-//
-//    @IBAction func batheTapped(_ sender: UIButton) {
-//        viewModel.bathePet()
-//    }
+    @IBAction func feedTapped(_ sender: UIButton) {
+        viewModel.feedPet()
+    }
+    
+    @IBAction func petTapped(_ sender: UIButton) {
+        viewModel.petPet()
+    }
+    
+    @IBAction func playTapped(_ sender: UIButton) {
+        viewModel.playWithPet()
+    }
+    
+    @IBAction func sleepTapped(_ sender: UIButton) {
+        viewModel.sleepPet()
+    }
+    
+    @IBAction func batheTapped(_ sender: UIButton) {
+        viewModel.bathePet()
+    }
 }

@@ -19,21 +19,22 @@ class PetViewModel {
         pet.name
     }
     
-    // Test strings for debugging math
+    
+    // Label text describing pet stat bars
     var hungerText: String {
-        "Hunger: \(pet.hunger)"
+        "Hunger:"
     }
 
     var energyText: String {
-        "Energy: \(pet.energy)"
+        "Energy:"
     }
 
     var cleanlinessText: String {
-        "Cleanliness: \(pet.cleanliness)"
+        "Cleanliness:"
     }
 
     var boredomText: String {
-        "Boredom: \(pet.boredom)"
+        "Boredom:"
     }
     
     var happinessText: String {
@@ -43,6 +44,32 @@ class PetViewModel {
     var affectionText: String {
         "Affection: \(pet.affection)"
     }
+    
+    
+    // Test strings for debugging math
+//    var hungerText: String {
+//        "Hunger: \(pet.hunger)"
+//    }
+//
+//    var energyText: String {
+//        "Energy: \(pet.energy)"
+//    }
+//
+//    var cleanlinessText: String {
+//        "Cleanliness: \(pet.cleanliness)"
+//    }
+//
+//    var boredomText: String {
+//        "Boredom: \(pet.boredom)"
+//    }
+//    
+//    var happinessText: String {
+//        "Happiness: \(pet.happiness)"
+//    }
+//
+//    var affectionText: String {
+//        "Affection: \(pet.affection)"
+//    }
     
     
     // Need gauges values
@@ -65,37 +92,37 @@ class PetViewModel {
 
     // Call functions from the pet class
     func feedPet() {
-            pet.feed()
-            notify()
-        }
+        pet.feed()
+        notify()
+    }
 
-        func playWithPet() {
-            pet.play()
-            notify()
-        }
+    func playWithPet() {
+        pet.play()
+        notify()
+    }
 
-        func sleepPet() {
-            pet.sleep()
-            notify()
-        }
+    func sleepPet() {
+        pet.sleep()
+        notify()
+    }
 
-        func bathePet() {
-            pet.bathe()
-            notify()
-        }
+    func bathePet() {
+        pet.bathe()
+        notify()
+    }
     
-        func petPet() {
-            pet.pet()
-            notify()
-        }
+    func petPet() {
+        pet.pet()
+        notify()
+    }
 
-        func tick() {
-            pet.tick()
-            notify()
-        }
+    func tick() {
+        pet.tick()
+        notify()
+    }
 
-        private func notify() {
-            onUpdate?()
-        }
+    private func notify() {
+        onUpdate?()
+    }
 }
 
