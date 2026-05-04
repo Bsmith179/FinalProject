@@ -10,22 +10,25 @@ import UIKit
 /// A class representing a virtual pet with stats representing its current needs.
 class Pet {
     let name: String
-    var hunger: Int
-    var energy: Int
-    var cleanliness: Int
-    var boredom: Int
-    var happiness: Int
-    var affection: Int
+    var hunger: Double
+    var energy: Double
+    var cleanliness: Double
+    var boredom: Double
+    var happiness: Double
+    var affection: Double
+    
+    var lastUpdate: Date
 
     // Starter stats for new pet
     init(name: String) {
-            self.name = name
-            self.hunger = 85
-            self.energy = 75
-            self.cleanliness = 80
-            self.boredom = 50
-            self.happiness = 40
-            self.affection = 0
+        self.name = name
+        self.hunger = 85
+        self.energy = 75
+        self.cleanliness = 80
+        self.boredom = 50
+        self.happiness = 40
+        self.affection = 0
+        self.lastUpdate = Date()
     }
     
         // Results of interaction (not final numbers, balance these later)
@@ -66,14 +69,32 @@ class Pet {
             //Add chance of +1 affection point
         }
 
-        // Not actually implemented yet, just here to test the math when I hook up the buttons in Milestone 2.
-        /// Logic for time based stat decay.
-        func tick() {
-            hunger = max(hunger - 2, 0)
-            boredom = max(boredom - 2, 0)
-            cleanliness = max(cleanliness - 1, 0)
-            energy = min(energy + 1, 100)
-            happiness = max(happiness - 1, 0)
-        }
-    
+
+    /// Simulation logic for time based stat decay.
+    func updateStats(now: Date = Date()) {
+        let timeScale = 10.0 // Running at 20x usual speed for demo
+        let elapsed = now.timeIntervalSince(lastUpdate)
+
+        let hungerDecay = 0.02
+        let boredomDecay = 0.015
+        let cleanlinessDecay = 0.01
+        let happinessDecay = 0.01
+        let energyRecovery = 0.005
+        
+        // Timescaled stats formula for demo
+        hunger = max(0, hunger - elapsed * hungerDecay * timeScale)
+        boredom = max(0, boredom - elapsed * boredomDecay * timeScale)
+        cleanliness = max(0, cleanliness - elapsed * cleanlinessDecay * timeScale)
+        happiness = max(0, happiness - elapsed * happinessDecay * timeScale)
+        energy = min(100, energy + elapsed * energyRecovery * timeScale)
+
+        // Original stats formula
+//        hunger = max(0, hunger - elapsed * hungerDecay)
+//        boredom = max(0, boredom - elapsed * boredomDecay)
+//        cleanliness = max(0, cleanliness - elapsed * cleanlinessDecay)
+//        happiness = max(0, happiness - elapsed * happinessDecay)
+//        energy = min(100, energy + elapsed * energyRecovery)
+
+        lastUpdate = now
+    }
 }

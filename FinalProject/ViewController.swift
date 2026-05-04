@@ -24,7 +24,8 @@ class ViewController: UIViewController {
     
     
     var viewModel: PetViewModel!
-
+    
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +37,22 @@ class ViewController: UIViewController {
         viewModel.onUpdate = { [weak self] in
             self?.updateUI()
         }
+        
+        // Set timer to manage interface updates
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.viewModel.refresh()
+        }
+        
         // First update on load to fill UI with the pet data before the user sees the screen
         updateUI()
     }
-
+    
+    // Handle updating stats when app is returned from the background
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.refresh()
+    }
+        
     /// Update the visual display to the most current data.
     private func updateUI() {
         nameLabel.text = viewModel.nameText
@@ -60,22 +73,27 @@ class ViewController: UIViewController {
     
     // Interaction button responses
     @IBAction func feedTapped(_ sender: UIButton) {
+        viewModel.refresh()
         viewModel.feedPet()
     }
     
     @IBAction func petTapped(_ sender: UIButton) {
+        viewModel.refresh()
         viewModel.petPet()
     }
     
     @IBAction func playTapped(_ sender: UIButton) {
+        viewModel.refresh()
         viewModel.playWithPet()
     }
     
     @IBAction func sleepTapped(_ sender: UIButton) {
+        viewModel.refresh()
         viewModel.sleepPet()
     }
     
     @IBAction func batheTapped(_ sender: UIButton) {
+        viewModel.refresh()
         viewModel.bathePet()
     }
 }

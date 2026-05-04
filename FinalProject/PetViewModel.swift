@@ -116,8 +116,8 @@ class PetViewModel {
         notify()
     }
 
-    func tick() {
-        pet.tick()
+    func refresh() {
+        pet.updateStats()
         notify()
     }
 
