@@ -122,6 +122,7 @@ class PetViewModel {
     }
 
     private func notify() {
+        PetStorage.save(pet)
         onUpdate?()
     }
 }

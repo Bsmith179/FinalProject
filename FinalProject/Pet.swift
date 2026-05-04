@@ -8,7 +8,7 @@
 import UIKit
 
 /// A class representing a virtual pet with stats representing its current needs.
-class Pet {
+class Pet: Codable {
     let name: String
     var hunger: Double
     var energy: Double

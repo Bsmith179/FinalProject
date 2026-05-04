@@ -30,9 +30,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Create pet from Pet class starting stats
-        viewModel = PetViewModel(pet: Pet(name: "Pett"))
+        // Create pet from Pet class starting stats or restore pet from previous session
+        let pet = PetStorage.load() ?? Pet(name: "Pett")
+        viewModel = PetViewModel(pet: pet)
 
+        // Apply offline decay
+        viewModel.refresh()
+        
+        
         // Update the UI when the view model sends back changed information.
         viewModel.onUpdate = { [weak self] in
             self?.updateUI()
@@ -44,7 +49,7 @@ class ViewController: UIViewController {
         }
         
         // First update on load to fill UI with the pet data before the user sees the screen
-        updateUI()
+        viewModel.refresh()
     }
     
     // Handle updating stats when app is returned from the background
@@ -53,6 +58,12 @@ class ViewController: UIViewController {
         viewModel.refresh()
     }
         
+    // Capture latest timestamp when app is closed to avoid lost data
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.refresh()
+    }
+    
     /// Update the visual display to the most current data.
     private func updateUI() {
         nameLabel.text = viewModel.nameText
