@@ -14,8 +14,6 @@ class Pet: Codable {
     var energy: Double
     var cleanliness: Double
     var excitement: Double
-    var happiness: Double
-    var affection: Double
     
     var lastUpdate: Date
     var alreadyWarnedStats: Set<String> = []
@@ -40,8 +38,6 @@ class Pet: Codable {
         self.energy = 75
         self.cleanliness = 80
         self.excitement = 50
-        self.happiness = 40
-        self.affection = 0
         self.lastUpdate = Date()
     }
     
@@ -217,7 +213,7 @@ class Pet: Codable {
         }
     }
     
-    //Depleted all stats message
+    //Depleted all stats message criteria
     func isCritical() -> Bool {
         return hunger == 0 &&
         energy == 0 &&
@@ -242,19 +238,25 @@ class Pet: Codable {
         return amount
     }
     
-    /// Demo action to fully restore all pet stats for a more versitile demonstration.
+    /// Demo action to fully restore all pet stats and condition for a more versitile demonstration.
     func restoreAllStats() {
+        // Core stats
         hunger = 100
         energy = 100
         cleanliness = 100
         excitement = 100
-        
+
+        // Clear warning memory
         alreadyWarnedStats.removeAll()
 
+        // Remove all debuffs
         hungerPenaltyUntil = nil
         energyPenaltyUntil = nil
         cleanlinessPenaltyUntil = nil
         excitementPenaltyUntil = nil
+
+        // Remove all cooldowns
+        sleepUntil = nil
     }
     
     enum CodingKeys: String, CodingKey {
@@ -263,8 +265,6 @@ class Pet: Codable {
         case energy
         case cleanliness
         case excitement
-        case happiness
-        case affection
         case lastUpdate
         case alreadyWarnedStats
     }

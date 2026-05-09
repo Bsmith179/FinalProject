@@ -37,14 +37,6 @@ class PetViewModel {
     var excitementText: String {
         "Excitement:"
     }
-    
-    var happinessText: String {
-        "Happiness: \(pet.happiness)"
-    }
-
-    var affectionText: String {
-        "Affection: \(pet.affection)"
-    }
         
     var isPetSleeping: Bool {
         pet.isSleeping()

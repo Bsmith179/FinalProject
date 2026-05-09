@@ -95,8 +95,6 @@ class ViewController: UIViewController {
         energyLabel.text = viewModel.energyText
         cleanlinessLabel.text = viewModel.cleanlinessText
         excitementLabel.text = viewModel.excitementText
-        //happinessLabel.text = viewModel.happinessText
-        //affectionLabel.text = viewModel.affectionText
         
         hungerBar.progress = viewModel.hungerProgress
         energyBar.progress = viewModel.energyProgress
