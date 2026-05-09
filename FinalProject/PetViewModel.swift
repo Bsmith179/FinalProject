@@ -50,6 +50,10 @@ class PetViewModel {
         pet.isSleeping()
     }
     
+    var canPlay: Bool {
+        pet.canPlay()
+    }
+    
     // Need gauges values
     var hungerProgress: Float {
         Float(pet.hunger) / 100.0

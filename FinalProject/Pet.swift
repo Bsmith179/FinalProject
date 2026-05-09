@@ -29,6 +29,9 @@ class Pet: Codable {
     // Busy state for extended tasks
     var sleepUntil: Date?
     
+    func canPlay() -> Bool {
+        return energy > 14
+    }
     
     // Starter stats for new pet
     init(name: String) {
@@ -87,7 +90,7 @@ class Pet: Codable {
 
         let cleanlinessGain = applyRecoveryPenalty(
             to: cleanliness,
-            amount: 35,
+            amount: 45,
             penaltyUntil: cleanlinessPenaltyUntil
         )
 

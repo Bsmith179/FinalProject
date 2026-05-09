@@ -105,8 +105,10 @@ class ViewController: UIViewController {
         
         sleepButton.isEnabled = !viewModel.isPetSleeping
         sleepButton.alpha = viewModel.isPetSleeping ? 0.4 : 1.0
+        
+        playButton.isEnabled = viewModel.canPlay
+        playButton.alpha = viewModel.canPlay ? 1.0 : 0.4
     }
-    
     
     
     // Interaction button responses
