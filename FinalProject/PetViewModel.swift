@@ -10,6 +10,7 @@ class PetViewModel {
     private var pet: Pet
 
     var onUpdate: (() -> Void)?
+    var onWarning: (([String]) -> Void)?
 
     init(pet: Pet) {
         self.pet = pet
@@ -33,8 +34,8 @@ class PetViewModel {
         "Cleanliness:"
     }
 
-    var boredomText: String {
-        "Boredom:"
+    var excitementText: String {
+        "Excitement:"
     }
     
     var happinessText: String {
@@ -44,33 +45,10 @@ class PetViewModel {
     var affectionText: String {
         "Affection: \(pet.affection)"
     }
-    
-    
-    // Test strings for debugging math
-//    var hungerText: String {
-//        "Hunger: \(pet.hunger)"
-//    }
-//
-//    var energyText: String {
-//        "Energy: \(pet.energy)"
-//    }
-//
-//    var cleanlinessText: String {
-//        "Cleanliness: \(pet.cleanliness)"
-//    }
-//
-//    var boredomText: String {
-//        "Boredom: \(pet.boredom)"
-//    }
-//    
-//    var happinessText: String {
-//        "Happiness: \(pet.happiness)"
-//    }
-//
-//    var affectionText: String {
-//        "Affection: \(pet.affection)"
-//    }
-    
+        
+    var isPetSleeping: Bool {
+        pet.isSleeping()
+    }
     
     // Need gauges values
     var hungerProgress: Float {
@@ -85,8 +63,8 @@ class PetViewModel {
         Float(pet.cleanliness) / 100.0
     }
 
-    var boredomProgress: Float {
-        Float(pet.boredom) / 100.0
+    var excitementProgress: Float {
+        Float(pet.excitement) / 100.0
     }
     
 
@@ -118,12 +96,29 @@ class PetViewModel {
 
     func refresh() {
         pet.updateStats()
+        let warnings = pet.checkLowStats()
+        if !warnings.isEmpty {
+            onWarning?(warnings)
+        }
         notify()
     }
 
     private func notify() {
         PetStorage.save(pet)
         onUpdate?()
+    }
+    
+    func checkWarnings() -> [String] {
+        return pet.checkLowStats()
+    }
+
+    func isCritical() -> Bool {
+        return pet.isCritical()
+    }
+    
+    func restorePetStats() {
+        pet.restoreAllStats()
+        notify()
     }
 }
 

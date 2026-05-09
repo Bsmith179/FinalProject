@@ -134,31 +134,49 @@
                                     <constraint firstItem="HKZ-nx-l9D" firstAttribute="width" secondItem="cIS-PZ-9LI" secondAttribute="width" id="zht-o6-cmT"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDs-2s-8db">
+                                <rect key="frame" x="281" y="134" width="96" height="34.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VDs-2s-8db" secondAttribute="height" multiplier="95:34" id="T2M-qp-7DS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Try Again"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eri-Ek-t70"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wuh-N8-IW6" secondAttribute="bottom" constant="32" id="3DH-ig-qv8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VDs-2s-8db" secondAttribute="trailing" constant="16" id="85d-6F-ysw"/>
+                            <constraint firstItem="VDs-2s-8db" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="E9h-a7-Jfl"/>
                             <constraint firstItem="Wuh-N8-IW6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="O8d-wd-TWO"/>
                             <constraint firstItem="Wuh-N8-IW6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WTp-3b-PAs"/>
                             <constraint firstItem="Wuh-N8-IW6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-8" id="WzU-ih-OmZ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="boredomBar" destination="iPj-LU-FfE" id="6sN-eb-f6L"/>
-                        <outlet property="boredomLabel" destination="HKZ-nx-l9D" id="arv-td-yxo"/>
+                        <outlet property="batheButton" destination="aab-CE-GIn" id="N0e-mJ-VUt"/>
                         <outlet property="cleanlinessBar" destination="X4s-JQ-cuR" id="ITJ-aN-DlN"/>
                         <outlet property="cleanlinessLabel" destination="DXA-cc-2LE" id="pfp-bl-FMl"/>
                         <outlet property="energyBar" destination="raQ-V8-9Tr" id="FOJ-WE-o4O"/>
                         <outlet property="energyLabel" destination="cIS-PZ-9LI" id="ntN-Y2-pvU"/>
+                        <outlet property="excitementBar" destination="iPj-LU-FfE" id="bWE-nx-CNQ"/>
+                        <outlet property="excitementLabel" destination="HKZ-nx-l9D" id="tNQ-ir-kcy"/>
+                        <outlet property="feedButton" destination="9Yd-Fn-jMP" id="XsT-tS-wxI"/>
                         <outlet property="hungerBar" destination="cly-Zn-7s6" id="2TJ-ON-vT4"/>
                         <outlet property="hungerLabel" destination="NB9-d0-oUG" id="pmX-2J-rp2"/>
                         <outlet property="nameLabel" destination="jQz-87-9GX" id="sjX-m4-hEv"/>
+                        <outlet property="petButton" destination="FPK-yG-0mJ" id="iO1-du-WQj"/>
+                        <outlet property="playButton" destination="MsW-Qh-tud" id="oeO-vR-NEe"/>
+                        <outlet property="sleepButton" destination="u7h-JH-7la" id="rXl-k3-U8x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="131"/>
+            <point key="canvasLocation" x="138.1679389312977" y="130.98591549295776"/>
         </scene>
     </scenes>
     <resources>
